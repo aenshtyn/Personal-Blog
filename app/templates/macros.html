@@ -1,10 +1,12 @@
-{% macro displayUserList (user_list) %}
 
-{% for user in user_list %}
- <li>
+{% macro display(posts) %}
 
-{{ user.username }}
- </li>
+{% for post in posts %}
+
+ <li>{{ post.category}}</li>
+  <li>{{ post.title }}</li>
+ <li>{{ post.content }}</li>
+
 
 {% endfor %}
 

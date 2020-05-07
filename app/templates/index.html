@@ -6,11 +6,6 @@
 {% block content %}
 
 <h3>Moha</h3>
-
-{% for user in users %}
-<li>
-  {{ macro.displayUserList (username) }}
-</li>
-{% endfor %}
+<li> {{ macro.display(posts) }}</li>
 <h3>Moha</h3>
 {% endblock%}

@@ -11,6 +11,16 @@ class User(db.Model):
         return f'User {self.username}'
 
 class Post(db.Model):
-    __tablename__= 'posts'
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key = True)
+    title = db.Column(db.String(255),nullable = False)
+    content = db.Column(db.Text(), nullable = False)
+    category = db.Column(db.String(255), index = True,nullable = False)
 
-    id = id = db.Column(db.Integer,primary_key = True)
+    def save_p(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    def __repr__(self):
+        return f'Pitch {self.post}'
