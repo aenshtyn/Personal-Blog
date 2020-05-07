@@ -2,9 +2,15 @@
 {% import 'macros.html' as macro%}
 
 
+<!-- Content block -->
+{% block content %}
 
+<h3>Moha</h3>
 
-
-<p>
-  moha
-</p>
+{% for user in users %}
+<li>
+  {{ macro.displayUserList (username) }}
+</li>
+{% endfor %}
+<h3>Moha</h3>
+{% endblock%}

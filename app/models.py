@@ -14,4 +14,3 @@ class Post(db.Model):
     __tablename__= 'posts'
 
     id = id = db.Column(db.Integer,primary_key = True)
-    

@@ -6,10 +6,10 @@ from . import main
 @main.route('/')
 def index():
 
-    # posts = Post.Query.all()
+    user = User.Query.all()
 
     '''
     View root page function that returns the index page and its data
     '''
     title = 'Home - Welcome to Aenshtyns Blog'
-    return render_template('index.html', title = title)
+    return render_template('index.html', title = title, user = user)
