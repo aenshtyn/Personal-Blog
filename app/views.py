@@ -6,8 +6,7 @@ from . import main
 @main.route('/')
 def index():
 
-    posts = Post.Query.all()
-    return
+    # posts = Post.Query.all()
 
     '''
     View root page function that returns the index page and its data

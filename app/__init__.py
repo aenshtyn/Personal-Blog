@@ -4,16 +4,23 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 
 db = SQLAlchemy()
+bootstrap = Bootstrap()
+
+
 def create_app(config_name):
+    app = Flask(__name__)
 
-# Initializing application
-app = Flask(__name__,instance_relative_config = True)
+    # Creating the app configurations
+    app.config.from_object(config_options[config_name])
 
-# Setting up configuration
-app.config.from_object(DevConfig)
-app.config.from_pyfile("config.py")
+    # Initializing flask extensions
+    bootstrap.init_app(app)
+    db.init_app(app)
 
-# Initializing Flask Extensions
-bootstrap = Bootstrap(app)
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
 
-from app import views
+
+
+    return app

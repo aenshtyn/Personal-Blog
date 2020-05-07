@@ -1,6 +1,8 @@
-class Config:
+ import os
 
-        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@localhost/watchlist'
+ class Config:
+
+        SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://username:password@localhost/blog'
 
 class ProdConfig(Config):
     '''
@@ -21,3 +23,8 @@ class DevConfig(Config):
     '''
 
  DEBUG = True
+
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+}
