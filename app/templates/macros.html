@@ -1,0 +1,7 @@
+{% macro displayPostList (post_list) %}
+
+{% for post in posts %}
+<li>
+   {{ post.title }}
+</li>
+{% endfor %}

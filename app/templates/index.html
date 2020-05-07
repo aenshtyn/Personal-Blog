@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+{% import 'macros.html' as macro%}
+
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title> {{ title }}</title>
   </head>
   <body>
-     {% for post in posts %}
-     <li>
-        {{ post.title }}
-     </li>
-     {% endfor %}
+
+    {% macro displayPostList(post)%}
+
   </body>
 </html>
