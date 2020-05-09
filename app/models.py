@@ -24,3 +24,9 @@ class Post(db.Model):
 
     def __repr__(self):
         return f'Pitch {self.post}'
+
+class Quote:
+
+    def __init__(self,quote,author):
+        self.quote = quote
+        self.author = author
