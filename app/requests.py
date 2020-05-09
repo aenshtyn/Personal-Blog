@@ -1,10 +1,11 @@
-from app import app
 import urllib.request,json
-from .models import quote
+from .models import Quote
 
-Quote = quote.Quote
+base_url = None
 
-base_url = app.config["QUOTES_URL"]
+def configure_request(app):
+
+    base_url = app.config["QUOTES_URL"]
 
 def get_quotes():
 
@@ -12,7 +13,7 @@ def get_quotes():
 
     with urllib.request.urlopen(get_quotes_url) as url:
         get_quotes.data = url.read()
-        get_quotes_response = json.loads(get_quotes data)
+        get_quotes_response = json.loads(get_quotes_data)
 
         quotes_results = None
 

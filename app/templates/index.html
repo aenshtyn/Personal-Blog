@@ -5,7 +5,11 @@
 <!-- Content block -->
 {% block content %}
 
+ <p>
+    {{random_quotes.quote }}
+ </p>
 <h3>Moha</h3>
+<li> {{ macro.display(users) }}</li>
 <li> {{ macro.display(posts) }}</li>
 <h3>Moha</h3>
 {% endblock%}
