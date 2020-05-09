@@ -6,6 +6,7 @@ class Config:
     '''
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mohamed:1111@localhost/blog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    QUOTES_URL = 'http://quotes.stormconsultancy.co.uk/random.json'
 
 
 
