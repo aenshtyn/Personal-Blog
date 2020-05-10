@@ -36,3 +36,5 @@ def index():
 @main.route('/new/<int:id>', methods = ['GET','POST'])
 @login_required
 def new_post(id):
+
+       return render_template('new_blog.html',title = title)
