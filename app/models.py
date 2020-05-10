@@ -1,6 +1,6 @@
 from werkzeug.security import generate_password_hash,check_password_hash
 from . import db
-from flask_login import UserMixin
+from flask_login import current_user,UserMixin
 from . import login_manager
 from datetime import datetime
 
@@ -9,7 +9,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-class User(db.Model):
+class User(UserMixin,db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer,primary_key = True)
@@ -17,7 +17,7 @@ class User(db.Model):
     email = db.Column(db.String(255),unique = True,index = True)
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
-    password_secure = db.Column(db.String(255))
+    hashed_password = db.Column(db.String(255))
     comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
 
 
@@ -32,6 +32,13 @@ class User(db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.pass_secure,password)
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
 
     def __repr__(self):
         return f'User {self.username}'

@@ -11,7 +11,13 @@
 
 ## Description
 
+This is a Flask application that is built as a blog. There are two types of users. 1. The writers and 2. The readers. Writers can create posts and upload them to the blog, they also have the ability to delete unneccessary comments from the Readers. Readers can go trhough the posts, comment on any of them, and even subscribe to recieve notification of new posts.
+
 ## User Storys
+
+
+## BDD
+| Behaviour | Input | Output |
 
 ## Setup/Installation Requirements
 
