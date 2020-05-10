@@ -4,7 +4,7 @@ from ..models import User, Post, Quote
 from .. import db
 from ..requests import get_quotes
 from flask_login import login_required
-from .forms import ReviewForm,UpdateProfile
+from .forms import UpdateProfile
 
 # @main.route('/')
 # def index():
