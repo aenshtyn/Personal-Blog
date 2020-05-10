@@ -3,6 +3,7 @@ from . import main
 from ..models import User, Post, Quote
 from .. import db
 from ..requests import get_quotes
+from flask_login import login_required
 
 # @main.route('/')
 # def index():
@@ -30,3 +31,8 @@ def index():
     return render_template('index.html', title = title, users = users, posts = posts)
 
     # return render_template('index.html', title = title, random_quotes = random_quotes, users = users, posts = posts)
+
+
+@main.route('/new/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_post(id):
