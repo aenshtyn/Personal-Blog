@@ -1,10 +1,11 @@
-from flask import render_template,request,redirect,url_for, abort, current_user
+from flask import render_template,request,redirect,url_for, abort
 from . import main
 from ..models import User, Post, Quote
 from .. import db,photos
 from ..requests import get_quotes
-from flask_login import login_required
+from flask_login import login_required, current_user
 from .forms import UpdateProfile
+import markdown2  
 
 # @main.route('/')
 # def index():
@@ -80,3 +81,11 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/comment/<int:id>')
+def single_comment(id):
+    comment=Comment.query.get(id)
+    if comment is None:
+        abort(404)
+    format_comment = markdown2.markdown(comment.movie_comment,extras=["code-friendly", "fenced-code-blocks"])
+    return render_template('comment.html',comment = comment,format_comment=format_comment)
