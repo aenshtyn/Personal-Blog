@@ -17,6 +17,7 @@ class User(db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     bio = db.Column(db.String(255))
     password_secure = db.Column(db.String(255))
+    comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
 
 
     @property
@@ -64,3 +65,22 @@ class Quote:
     def __init__(self,quote,author):
         self.quote = quote
         self.author = author
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer,primary_key = True)
+    post_id = db.Column(db.Integer)
+    post_title = db.Column(db.String)
+    post_comment = db.Column(db.String)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+    @classmethod
+    def get_comments(cls,id):
+        comments = Comment.query.filter_by(post_id=id).all()
+        return comments

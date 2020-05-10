@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect,url_for, abort
+from flask import render_template,request,redirect,url_for, abort, current_user
 from . import main
 from ..models import User, Post, Quote
 from .. import db,photos
