@@ -9,7 +9,7 @@ def configure_request(app):
 
 def get_quotes():
 
-    get_quotes_url = base_url.format()
+    get_quotes_url = base_url.format(random)
 
     with urllib.request.urlopen(get_quotes_url) as url:
         get_quotes.data = url.read()

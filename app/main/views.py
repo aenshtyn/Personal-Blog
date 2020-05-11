@@ -1,11 +1,12 @@
 from flask import render_template,request,redirect,url_for, abort
 from . import main
-from ..models import User, Post, Quote
+from ..models import User, Post
 from .. import db,photos
 from ..requests import get_quotes
 from flask_login import login_required, current_user
 from .forms import UpdateProfile
-import markdown2  
+import markdown2
+import os
 
 # @main.route('/')
 # def index():
@@ -19,6 +20,7 @@ import markdown2
 @main.route('/', methods = ['GET','POST'])
 def index():
 
+    # quotes = get_quotes()
     users = User.query.all()
     posts = Post.query.filter_by(category = 'World News').all()
 
