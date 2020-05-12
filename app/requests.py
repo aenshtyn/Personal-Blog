@@ -26,6 +26,7 @@ def get_quotes():
 def process_results(quote_list):
 
     quote_results = []
+
     for quote_item in quote_list:
         quote = quote_item.get('quote')
         author = quote_item.get('author')

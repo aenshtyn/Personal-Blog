@@ -22,7 +22,7 @@ def index():
 
     # quotes = get_quotes()
     users = User.query.all()
-    posts = Post.query.filter_by(category = 'World News').all()
+    posts = Post.query.all()
 
 
     # random_quotes = get_quotes()
@@ -32,7 +32,7 @@ def index():
     View root page function that returns the index page and its data
     '''
     title = 'Home - Welcome to Aenshtyns Blog'
-    return render_template('index.html', title = title, users = users, posts = posts)
+    return render_template('index.html', title = title, users = users, posts = posts  )
 
     # return render_template('index.html', title = title, random_quotes = random_quotes, users = users, posts = posts)
 
