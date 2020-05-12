@@ -1,0 +1,5 @@
+Hello {{user.username}}
+
+You have successfully subscribed to AENSHTYNS BLOG. Welcome.
+
+We will keep you posted on any new content created. Please Enjoy going through the blogs and comment. 

@@ -1,0 +1,10 @@
+Hello!!
+
+A new blog was posted
+
+Title: {{blog.title}}
+Post: {{blog.content|truncate(25)}}
+
+Regards,
+
+Aenshtyns Blog
